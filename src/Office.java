@@ -8,6 +8,7 @@ public class Office {
 
     Office(){
         this.clean = true;
+        this.empty = false;
     }
 
     public boolean getClean(){
