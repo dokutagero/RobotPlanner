@@ -10,6 +10,9 @@ public class Box {
         this.boxName = boxName;
     }
 
+    public String getBoxName(){
+        return this.boxName;
+    }
     public void setLocation(int location){
         this.location = location;
     }

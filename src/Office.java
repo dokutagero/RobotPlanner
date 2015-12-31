@@ -4,6 +4,11 @@
 public class Office {
 
     public boolean clean;
+    public boolean empty;
+
+    Office(){
+        this.clean = true;
+    }
 
     public boolean getClean(){
         return this.clean;
@@ -11,5 +16,13 @@ public class Office {
 
     public void setClean(boolean clean){
         this.clean = clean;
+    }
+
+    public boolean getEmpty(){
+        return this.empty;
+    }
+
+    public void setEmpty(boolean empty){
+        this.empty = empty;
     }
 }

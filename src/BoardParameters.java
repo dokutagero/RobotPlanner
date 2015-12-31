@@ -29,6 +29,14 @@ public class BoardParameters {
         return this.boxes;
     }
 
+    public Box getBoxByName(String name){
+        for (Box box : this.boxes){
+            if (box.getBoxName().equals(name)){
+                return box;
+            }
+        }
+        return null;
+    }
     public void addBox(Box box){
         this.boxes.add(box);
     }
