@@ -5,10 +5,12 @@ public class Office {
 
     public boolean clean;
     public boolean empty;
+    public int officeNumber;
 
-    Office(){
+    Office(int officeNumber){
         this.clean = true;
         this.empty = false;
+        this.officeNumber = officeNumber; //Probably we can access this by index though
     }
 
     public boolean getClean(){

@@ -30,7 +30,6 @@ public class PARser {
                     Pattern p = Pattern.compile("([A-Z])");
                     Matcher m = p.matcher(lineScanner.next());
                     while (m.find()){
-                        System.out.println("Value of Box in parser: " + m.group(1));
                         //boardParameters.setRobotLocation(Integer.parseInt(m.group(1)));
                         Box box = new Box(m.group(1));
                         boardParameters.addBox(box);
@@ -39,11 +38,12 @@ public class PARser {
                 }
 
                 case "Offices" : {
-                    Pattern p = Pattern.compile("(o[0-9])");
+                    Pattern p = Pattern.compile("o([0-9])");
                     Matcher m = p.matcher(lineScanner.next());
                     //boardParameters.setNumOffices(m.groupCount());
                     while (m.find()){
-                        Office office = new Office();
+                        System.out.println(m.group(1));
+                        Office office = new Office(Integer.parseInt(m.group(1)));
                         boardParameters.addOffice(office);
                     }
                     break;
@@ -55,8 +55,8 @@ public class PARser {
                     String text = lineScanner.next();
                     Matcher m = p.matcher(text);
                     while (m.find()){
-                        System.out.println("Value in parser: " + m.group(1));
-                        boardParameters.setRobotLocation(Integer.parseInt(m.group(1)));
+                        Robot robot = new Robot(Integer.parseInt(m.group(1)));
+                        boardParameters.setRobot(robot);
                     }
                     // Parse dirty offices
                     p = Pattern.compile("Dirty[(]o([0-9]+)[)]");
@@ -80,6 +80,33 @@ public class PARser {
                     }
 
                     break;
+                }
+
+                case "GoalState":{
+
+                    // Parse goal Robot location
+                    Pattern p = Pattern.compile("Robot-location[(]o([0-9]+)[)]");
+                    String text = lineScanner.next();
+                    Matcher m = p.matcher(text);
+                    m.find();
+                    boardParameters.setGoalRobotLocation(Integer.parseInt(m.group(1)));
+
+                    // Parse empty goal empty offices
+                    p = Pattern.compile("Empty[(]o([0-9]+)[)]");
+                    m = p.matcher(text);
+                    while (m.find()){
+                        boardParameters.addGoalEmptyOffices(Integer.parseInt(m.group(1)));
+                    }
+
+                    // Parse goal Box-location
+                    p = Pattern.compile("Box-location[(]([A-Z]),o([0-9])[)]");
+                    m = p.matcher(text);
+                    while(m.find()){
+                        BoxLocationTuple boxLocationTuple = new BoxLocationTuple(m.group(1),Integer.parseInt(m.group(2)));
+                        boardParameters.addGoalBoxLocation(boxLocationTuple);
+                    }
+                    break;
+
                 }
             }
         }
