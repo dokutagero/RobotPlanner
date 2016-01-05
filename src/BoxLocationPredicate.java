@@ -3,9 +3,24 @@
  */
 public class BoxLocationPredicate extends Predicate {
 
+    private Box box;
+    private Office office;
 
-    @Override
+    public BoxLocationPredicate(Box box, Office office) {
+        this.box = box;
+        this.office = office;
+    }
+
+    // @Override
     boolean checkPredicate() {
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "BoxLocation{" +
+                box.getBoxName() + "," +
+                office.getOfficeNumber() +
+                '}';
     }
 }

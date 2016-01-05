@@ -3,6 +3,12 @@
  */
 public class CleanOfficeOperator extends Operator {
 
+    private Office office;
+    public CleanOfficeOperator(Office office) {
+        this.office=office;
+
+    }
+
     @Override
     boolean checkPreconditions() {
         return false;
@@ -16,5 +22,12 @@ public class CleanOfficeOperator extends Operator {
     @Override
     void deleteList() {
 
+    }
+
+    @Override
+    public String toString() {
+        return "Clean-office{"+
+                "o" + office.getOfficeNumber() +
+                '}';
     }
 }

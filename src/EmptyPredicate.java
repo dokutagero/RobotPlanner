@@ -3,15 +3,21 @@
  */
 public class EmptyPredicate extends Predicate {
 
-    boolean empty;
+    private Office office;
 
     public EmptyPredicate(Office office) {
-        this.empty = office.getEmpty();
+        this.office = office;
     }
 
-
-    @Override
+    //@Override
     boolean checkPredicate() {
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Empty{" +
+                office.getOfficeNumber() +
+                '}';
     }
 }

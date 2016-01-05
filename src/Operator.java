@@ -1,7 +1,7 @@
 /**
  * Created by juarugui on 04/01/16.
  */
-public abstract class Operator {
+public abstract class Operator extends StackElement {
 
     public String operatorType;
 

@@ -3,14 +3,24 @@
  */
 public class AdjacentPredicate extends Predicate {
 
-    boolean adjacent;
+    private Office office1;
+    private Office office2;
 
     public AdjacentPredicate(Office office1, Office office2) {
-        // compute adjacent
+        this.office1 = office1;
+        this.office2 = office2;
+    }
+
+    //@Override
+    boolean checkPredicate() {
+        return false;
     }
 
     @Override
-    boolean checkPredicate() {
-        return false;
+    public String toString() {
+        return "Adjacent{" +
+                office1.getOfficeNumber() + "," +
+                office2.getOfficeNumber() +
+                '}';
     }
 }

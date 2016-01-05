@@ -3,14 +3,21 @@
  */
 public class DirtyPredicate extends Predicate {
 
-    public boolean dirty;
+    Office office;
 
     public DirtyPredicate(Office office) {
-        this.dirty = office.getClean();
+        this.office = office;
+    }
+
+    //@Override
+    boolean checkPredicate() {
+        return false;
     }
 
     @Override
-    boolean checkPredicate() {
-        return false;
+    public String toString() {
+        return "Dirty{" +
+                office.getOfficeNumber() +
+                '}';
     }
 }

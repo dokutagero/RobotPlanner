@@ -28,4 +28,8 @@ public class Office {
     public void setEmpty(boolean empty){
         this.empty = empty;
     }
+
+    public int getOfficeNumber() {
+        return officeNumber;
+    }
 }
