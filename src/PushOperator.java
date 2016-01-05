@@ -13,8 +13,6 @@ public class PushOperator extends Operator {
         this.office2 = office2;
     }
 
-    public PushOperator() {
-    }
 
     @Override
     boolean checkPreconditions() {
