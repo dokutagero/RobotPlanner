@@ -16,4 +16,14 @@ public class PushOperator extends Operator {
     void deleteList() {
 
     }
+
+
+    public void push(Office office){
+
+        if (checkPreconditions()){
+        }
+
+
+
+    }
 }
