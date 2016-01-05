@@ -22,4 +22,21 @@ public class GoalStack {
             stack.remove(0);
         }
     }
+
+    public List<StackElement> getStack() {
+        return stack;
+    }
+
+    public void populateGoalStack(BoardParameters boardParameters){
+
+        CleanPredicate cleanPredicate;
+        //Populate with clean Predicates
+        for(Office office : boardParameters.getOffices()){
+            cleanPredicate = new CleanPredicate(office);
+            this.pushToStack(cleanPredicate);
+        }
+
+        //Populate with BoxLocations
+
+    }
 }

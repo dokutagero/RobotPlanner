@@ -11,5 +11,6 @@ public class RobotPlanner {
         BoardParameters boardParameters = parser.parse(filename);
 
 
+        GoalStack goalStack = new GoalStack();
     }
 }
