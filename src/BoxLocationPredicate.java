@@ -13,7 +13,7 @@ public class BoxLocationPredicate extends Predicate {
 
     // @Override
     boolean checkPredicate() {
-        return false;
+        return (box.getOffice() == office);
     }
 
     @Override
@@ -22,5 +22,10 @@ public class BoxLocationPredicate extends Predicate {
                 box.getBoxName() + "," +
                 office.getOfficeNumber() +
                 '}';
+    }
+
+    @Override
+    public boolean checkElement() {
+        return this.checkPredicate();
     }
 }

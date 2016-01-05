@@ -26,6 +26,12 @@ public class MoveOperator extends Operator {
 
     }
 
+
+    @Override
+    public boolean checkElement() {
+        return this.checkPreconditions();
+    }
+
     @Override
     public String toString() {
         return "Move{" +

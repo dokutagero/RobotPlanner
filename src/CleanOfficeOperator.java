@@ -4,14 +4,18 @@
 public class CleanOfficeOperator extends Operator {
 
     private Office office;
-    public CleanOfficeOperator(Office office) {
-        this.office=office;
+    private Robot robot;
+
+    public CleanOfficeOperator(Office office, Robot robot) {
+        this.office = office;
+        this.robot = robot;
 
     }
 
     @Override
     boolean checkPreconditions() {
-        return false;
+        return (office.getEmpty() && office.getClean() &&
+                (robot.getLocation()==office.getOfficeNumber()));
     }
 
     @Override
@@ -23,6 +27,13 @@ public class CleanOfficeOperator extends Operator {
     void deleteList() {
 
     }
+
+
+    @Override
+    public boolean checkElement() {
+        return this.checkPreconditions();
+    }
+
 
     @Override
     public String toString() {

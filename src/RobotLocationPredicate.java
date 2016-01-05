@@ -4,16 +4,25 @@
 public class RobotLocationPredicate extends Predicate {
 
     private Office office;
+    private Robot robot;
 
-    RobotLocationPredicate(Office office) {
+    RobotLocationPredicate(Office office, Robot robot) {
         this.office = office;
+        this.robot = robot;
+
     }
 
-    //@Override
-    boolean checkPredicate(Office office) {
-        //return (office.getOfficeNumber()==this.robotLocation);
-        return false;
+
+    @Override
+    boolean checkPredicate() {
+        return (robot.getLocation()==office.getOfficeNumber());
     }
+
+    @Override
+    public boolean checkElement() {
+        return this.checkPredicate();
+    }
+
 
     @Override
     public String toString() {

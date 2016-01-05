@@ -1,4 +1,7 @@
+import com.sun.tools.javac.util.ArrayUtils;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -13,7 +16,7 @@ public class GoalStack {
     }
 
     public void pushToStack(StackElement element){
-        stack.add(element);
+        stack.add(0,element);
     }
 
     public void popFromStack(){
@@ -27,16 +30,61 @@ public class GoalStack {
         return stack;
     }
 
-    public void populateGoalStack(BoardParameters boardParameters){
+    public void populateGoalStack(BoardParameters boardParameters) {
 
         CleanPredicate cleanPredicate;
+        EmptyPredicate emptyPredicate;
+        BoxLocationPredicate boxLocationPredicate;
+        List<Office> offices = boardParameters.getOffices();
+        RobotLocationPredicate robotLocationPredicate;
+
+
         //Populate with clean Predicates
-        for(Office office : boardParameters.getOffices()){
+        for (Office office : offices) {
             cleanPredicate = new CleanPredicate(office);
             this.pushToStack(cleanPredicate);
+
+
         }
 
-        //Populate with BoxLocations
+        //Populate with empty office Predicates
+        for (Office office : offices) {
+            if (boardParameters.getGoalEmptyOffices().contains(office.getOfficeNumber())) {
+                emptyPredicate = new EmptyPredicate(office);
+                this.pushToStack(emptyPredicate);
+            }
+        }
 
+        //Populate with Box location predicates
+        List <BoxLocationTuple> goalBoxLocation = boardParameters.getGoalBoxLocation();
+
+        for (BoxLocationTuple boxLocationTuple : goalBoxLocation){
+            Box box = boardParameters.getBoxByName(boxLocationTuple.getBoxName());
+            Office office = boardParameters.getOffice(boxLocationTuple.getBoxLocation()-1);
+            boxLocationPredicate = new BoxLocationPredicate(box,office);
+            this.pushToStack(boxLocationPredicate);
+        }
+
+        //Populate with goal robot location. (change this man...)
+        int robotLocation = boardParameters.getGoalRobotLocation();
+        for (Office office : offices) {
+            if (office.getOfficeNumber()==robotLocation){
+                robotLocationPredicate = new RobotLocationPredicate(office, boardParameters.getRobot());
+                this.pushToStack(robotLocationPredicate);
+            }
+        }
+
+
+    }
+
+
+
+    public String toString(){
+        String toStringValue = new String();
+        //String leftAlignFormat = "| %-15s | %-4d |%n";
+        for (StackElement element : this.stack){
+            toStringValue = toStringValue + element.toString() + "\n";
+        }
+        return toStringValue;
     }
 }

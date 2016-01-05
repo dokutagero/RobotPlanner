@@ -23,4 +23,9 @@ public class AdjacentPredicate extends Predicate {
                 office2.getOfficeNumber() +
                 '}';
     }
+
+    @Override
+    public boolean checkElement() {
+        return this.checkPredicate();
+    }
 }

@@ -12,5 +12,11 @@ public class RobotPlanner {
 
 
         GoalStack goalStack = new GoalStack();
+        goalStack.populateGoalStack(boardParameters);
+        System.out.println(goalStack.toString());
+
+        // Apply planner
+        Planner planner = new Planner();
+        planner.applyPlanner(goalStack);
     }
 }

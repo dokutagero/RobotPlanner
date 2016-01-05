@@ -11,7 +11,7 @@ public class DirtyPredicate extends Predicate {
 
     //@Override
     boolean checkPredicate() {
-        return false;
+        return !office.getClean();
     }
 
     @Override
@@ -19,5 +19,10 @@ public class DirtyPredicate extends Predicate {
         return "Dirty{" +
                 office.getOfficeNumber() +
                 '}';
+    }
+
+    @Override
+    public boolean checkElement() {
+        return this.checkPredicate();
     }
 }

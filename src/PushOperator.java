@@ -37,6 +37,7 @@ public class PushOperator extends Operator {
 
     }
 
+
     @Override
     public String toString() {
         return "Push{" +
@@ -44,5 +45,10 @@ public class PushOperator extends Operator {
                 ",o" + office1.getOfficeNumber() +
                 ",o" + office2.getOfficeNumber() +
                 '}';
+    }
+
+    @Override
+    public boolean checkElement() {
+        return this.checkPreconditions();
     }
 }

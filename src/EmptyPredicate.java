@@ -11,7 +11,7 @@ public class EmptyPredicate extends Predicate {
 
     //@Override
     boolean checkPredicate() {
-        return false;
+        return office.getEmpty();
     }
 
     @Override
@@ -19,5 +19,10 @@ public class EmptyPredicate extends Predicate {
         return "Empty{" +
                 office.getOfficeNumber() +
                 '}';
+    }
+
+    @Override
+    public boolean checkElement() {
+        return this.checkPredicate();
     }
 }

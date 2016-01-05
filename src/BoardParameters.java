@@ -55,10 +55,6 @@ public class BoardParameters {
         this.offices.add(office);
     }
 
-    public int getGoalRobotLocation() {
-        return goalRobotLocation;
-    }
-
     public void setGoalRobotLocation(int goalRobotLocation) {
         this.goalRobotLocation = goalRobotLocation;
     }
@@ -81,5 +77,13 @@ public class BoardParameters {
 
     public void setRobot(Robot robot) {
         this.robot = robot;
+    }
+
+    public int getGoalRobotLocation() {
+        return goalRobotLocation;
+    }
+
+    public Robot getRobot() {
+        return robot;
     }
 }

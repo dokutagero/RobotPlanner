@@ -9,9 +9,9 @@ public class CleanPredicate extends Predicate {
         this.office = office;
     }
 
-    //@Override
+    @Override
     boolean checkPredicate() {
-        return false;
+        return office.getClean();
     }
 
 
@@ -21,4 +21,11 @@ public class CleanPredicate extends Predicate {
                 office.getOfficeNumber() +
                 '}';
     }
+
+    @Override
+    public boolean checkElement() {
+        return this.checkPredicate();
+    }
+
+
 }

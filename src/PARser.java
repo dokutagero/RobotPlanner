@@ -69,7 +69,8 @@ public class PARser {
                     p = Pattern.compile("Box-location[(]([A-Z]),o([0-9]+)[)]");
                     m = p.matcher(text);
                     while (m.find()){
-                        boardParameters.getBoxByName(m.group(1)).setLocation(Integer.parseInt(m.group(2)));
+                        boardParameters.getBoxByName(m.group(1)).setLocation(
+                                boardParameters.getOffice(Integer.parseInt(m.group(2))-1));
                     }
 
                     // Parse empty office

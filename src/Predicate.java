@@ -3,5 +3,5 @@
  */
 public abstract class Predicate extends StackElement {
 
-    //abstract boolean checkPredicate();
+    abstract boolean checkPredicate();
 }
