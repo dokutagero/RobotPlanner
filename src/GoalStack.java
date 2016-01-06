@@ -16,7 +16,7 @@ public class GoalStack {
     }
 
     public void pushToStack(StackElement element){
-        stack.add(0,element);
+        stack.add(element);
     }
 
     public void popFromStack(){

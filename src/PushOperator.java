@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by juarugui on 04/01/16.
  */
@@ -6,22 +9,30 @@ public class PushOperator extends Operator {
     private Box box;
     private Office office1;
     private Office office2;
+    private Robot robot;
 
-    public PushOperator(Box box, Office office1, Office office2) {
+    public PushOperator(Robot robot,Box box, Office office1, Office office2) {
         this.box = box;
         this.office1 = office1;
         this.office2 = office2;
+        this.robot = robot;
     }
 
 
-    @Override
+    /*@Override
     boolean checkPreconditions() {
         return false;
-    }
+    }*/
 
     @Override
     void add() {
-
+        // Push(box,o1,o2)
+        // Set location of box to office2
+        // Set office1 empty
+        // Robot location office2
+        box.setLocation(office2);
+        office1.setEmpty(true);
+        robot.setLocation(office2);
     }
 
     @Override
@@ -29,12 +40,17 @@ public class PushOperator extends Operator {
 
     }
 
-
-    public void push(Office office){
-
-        if (checkPreconditions()){
-        }
-
+    @Override
+    public List<Predicate> listPreconditions() {
+        ArrayList<Predicate> preconditions = new ArrayList<Predicate>();
+        Predicate robot_location = new RobotLocationPredicate(office1, robot);
+        Predicate box_location = new BoxLocationPredicate(box, office1);
+        Predicate empty = new EmptyPredicate(office2);
+        //adjacent missing
+        preconditions.add(robot_location);
+        preconditions.add(box_location);
+        preconditions.add(empty);
+        return preconditions;
     }
 
 
@@ -49,7 +65,7 @@ public class PushOperator extends Operator {
 
     @Override
     public boolean checkElement() {
-        return this.checkPreconditions();
+        return false;//this.checkPreconditions();
     }
 
     @Override

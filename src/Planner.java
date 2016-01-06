@@ -5,8 +5,19 @@ import java.util.List;
  */
 public class Planner {
 
+    BoardParameters boardParameters;
+    GoalStack goalStack;
     List<StackElement> plan;
-    public void applyPlanner(GoalStack goalStack){
+
+
+
+    public Planner(BoardParameters boardParameters, GoalStack goalStack) {
+        this.boardParameters = boardParameters;
+        this.goalStack = goalStack;
+    }
+
+
+    public void applyPlanner(){
 
         StackElement currentStackElement;
         // Apply
@@ -29,10 +40,12 @@ public class Planner {
 
                 }
             }else{
-                // If goal predicate not satisfied: find operator and
-                // add it to the stack as well as operator preconditions
+                    // If goal predicate not satisfied: find operator and
+                    // add it to the stack as well as operator preconditions
                     if (currentStackElement instanceof Predicate){
                         currentStackElement.applyElement();
+                    }else{
+                    // If operator does not
                     }
 
             }
@@ -40,5 +53,10 @@ public class Planner {
         }
 
         goalStack.toString();
+    }
+
+    public void checkPreconditions(){
+
+
     }
 }

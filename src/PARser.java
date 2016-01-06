@@ -55,7 +55,8 @@ public class PARser {
                     String text = lineScanner.next();
                     Matcher m = p.matcher(text);
                     while (m.find()){
-                        Robot robot = new Robot(Integer.parseInt(m.group(1)));
+                        //Robot robot = new Robot(Integer.parseInt(m.group(1)));
+                        Robot robot = new Robot(boardParameters.getOffice(Integer.parseInt(m.group(1))-1));
                         boardParameters.setRobot(robot);
                     }
                     // Parse dirty offices

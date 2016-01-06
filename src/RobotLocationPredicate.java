@@ -15,7 +15,7 @@ public class RobotLocationPredicate extends Predicate {
 
     @Override
     boolean checkPredicate() {
-        return (robot.getLocation()==office.getOfficeNumber());
+        return (robot.getLocation()==office);
     }
 
     @Override

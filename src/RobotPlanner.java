@@ -16,7 +16,7 @@ public class RobotPlanner {
         System.out.println(goalStack.toString());
 
         // Apply planner
-        Planner planner = new Planner();
-        planner.applyPlanner(goalStack);
+        Planner planner = new Planner(boardParameters, goalStack);
+        planner.applyPlanner();
     }
 }

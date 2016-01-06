@@ -25,4 +25,9 @@ public class EmptyPredicate extends Predicate {
     public boolean checkElement() {
         return this.checkPredicate();
     }
+
+    @Override
+    void applyElement() {
+
+    }
 }
