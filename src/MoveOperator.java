@@ -37,8 +37,10 @@ public class MoveOperator extends Operator {
         ArrayList<Predicate> preconditions = new ArrayList<Predicate>();
         Predicate robot_location = new RobotLocationPredicate(this.office1, this.robot);
         //Predicate adjacent = new BoxLocationPredicate(box, office1);
-        //adjacent missing
+        //adjacent
+        AdjacentPredicate adjacentPredicate = new AdjacentPredicate(this.office1, this.office2);
         preconditions.add(robot_location);
+        preconditions.add(adjacentPredicate);
         return preconditions;
     }
 

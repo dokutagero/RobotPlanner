@@ -15,7 +15,7 @@ public class AdjacentPredicate extends Predicate {
         this.office1 = office1;
         this.office2 = office2;
         // Adjacent offices
-        this.adjacentOffices = new int[][]{{1,2},{1,3},{2,6},{1,5,7},
+        this.adjacentOffices = new int[][]{{2,4},{1,3,5},{2,6},{1,5,7},
                                             {2,4,6,8},{3,5,9},{4,8},
                                             {5,7,9},{6,8}};
 
