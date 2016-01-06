@@ -17,12 +17,12 @@ public class MoveOperator extends Operator {
     }
 
     @Override
-    void addList() {
+    void add() {
 
     }
 
     @Override
-    void deleteList() {
+    void delete() {
 
     }
 
@@ -30,6 +30,11 @@ public class MoveOperator extends Operator {
     @Override
     public boolean checkElement() {
         return this.checkPreconditions();
+    }
+
+    @Override
+    void applyElement() {
+        this.add();
     }
 
     @Override

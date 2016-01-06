@@ -23,6 +23,11 @@ public class RobotLocationPredicate extends Predicate {
         return this.checkPredicate();
     }
 
+    @Override
+    void applyElement() {
+
+    }
+
 
     @Override
     public String toString() {

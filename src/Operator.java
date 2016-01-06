@@ -6,7 +6,7 @@ public abstract class Operator extends StackElement {
     public String operatorType;
 
     abstract boolean checkPreconditions();
-    abstract void addList();
-    abstract void deleteList();
+    abstract void add();
+    abstract void delete();
 
 }

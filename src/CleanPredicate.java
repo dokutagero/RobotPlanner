@@ -27,5 +27,10 @@ public class CleanPredicate extends Predicate {
         return this.checkPredicate();
     }
 
+    // Look for operator with goal in its effects
+    public void applyElement() {
+
+    }
+
 
 }

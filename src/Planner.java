@@ -24,11 +24,21 @@ public class Planner {
                 }else{
                 // If preconditions of operator are true, add to plan
                     plan.add(currentStackElement);
-                    
+                    // apply add and delete
+                    currentStackElement.applyElement();
+
                 }
+            }else{
+                // If goal predicate not satisfied: find operator and
+                // add it to the stack as well as operator preconditions
+                    if (currentStackElement instanceof Predicate){
+                        currentStackElement.applyElement();
+                    }
+
             }
 
         }
 
+        goalStack.toString();
     }
 }

@@ -28,4 +28,9 @@ public class BoxLocationPredicate extends Predicate {
     public boolean checkElement() {
         return this.checkPredicate();
     }
+
+    @Override
+    void applyElement() {
+
+    }
 }

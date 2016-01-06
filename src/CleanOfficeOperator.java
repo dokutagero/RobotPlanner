@@ -19,12 +19,12 @@ public class CleanOfficeOperator extends Operator {
     }
 
     @Override
-    void addList() {
-
+    void add() {
+        office.setClean(true);
     }
 
     @Override
-    void deleteList() {
+    void delete() {
 
     }
 
@@ -32,6 +32,12 @@ public class CleanOfficeOperator extends Operator {
     @Override
     public boolean checkElement() {
         return this.checkPreconditions();
+    }
+
+    @Override
+    void applyElement() {
+        this.add();
+        //this.delete()
     }
 
 

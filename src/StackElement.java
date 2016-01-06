@@ -8,4 +8,5 @@ public abstract class StackElement {
     //checkElement will check precondition for Operators
     //and will check predicates if element is a predicate.
     abstract boolean checkElement();
+    abstract void applyElement();
 }
