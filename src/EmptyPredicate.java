@@ -30,4 +30,8 @@ public class EmptyPredicate extends Predicate {
     void applyElement() {
 
     }
+
+    public Office getOffice() {
+        return office;
+    }
 }

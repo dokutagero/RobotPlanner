@@ -19,6 +19,10 @@ public class GoalStack {
         stack.add(element);
     }
 
+    public void addToStack(StackElement element){
+        stack.add(0,element);
+    }
+
     public void popFromStack(){
 
         if (!stack.isEmpty()){

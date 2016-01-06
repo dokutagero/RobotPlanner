@@ -10,6 +10,10 @@ public class MoveOperator extends Operator {
     private Office office2;
     private Robot robot;
 
+    public MoveOperator(){
+
+    }
+
     public MoveOperator(Robot robot, Office office1, Office office2) {
         this.office1 = office1;
         this.office2 = office2;
@@ -18,24 +22,33 @@ public class MoveOperator extends Operator {
 
 
     @Override
-    void add() {
+    public void add() {
         //Move(o1,o2)
         //Moves robot to office2
         robot.setLocation(office2);
     }
 
     @Override
-    void delete() {
+    public void delete() {
 
     }
 
     public List<Predicate> listPreconditions() {
         ArrayList<Predicate> preconditions = new ArrayList<Predicate>();
-        Predicate robot_location = new RobotLocationPredicate(office1, robot);
+        Predicate robot_location = new RobotLocationPredicate(this.office1, this.robot);
         //Predicate adjacent = new BoxLocationPredicate(box, office1);
         //adjacent missing
         preconditions.add(robot_location);
         return preconditions;
+    }
+
+    public List<Predicate> getAddEffects(Robot robot, Office office1, Office office2){
+
+        // List so we could add new add efects if needed for having another behaviour.
+        ArrayList<Predicate> addEfects = new ArrayList<Predicate>();
+        RobotLocationPredicate robotLocationPredicate = new RobotLocationPredicate(office2, robot);
+        addEfects.add(robotLocationPredicate);
+        return addEfects;
     }
 
 

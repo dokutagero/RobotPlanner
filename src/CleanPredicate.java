@@ -33,5 +33,7 @@ public class CleanPredicate extends Predicate {
 
     }
 
-
+    public Office getOffice() {
+        return office;
+    }
 }

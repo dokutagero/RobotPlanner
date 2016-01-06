@@ -3,5 +3,8 @@
  */
 public abstract class Predicate extends StackElement {
 
+    //private String type;
+
     abstract boolean checkPredicate();
+    //abstract String getType();
 }

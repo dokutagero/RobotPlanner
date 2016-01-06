@@ -11,6 +11,11 @@ public class PushOperator extends Operator {
     private Office office2;
     private Robot robot;
 
+    public PushOperator(){
+
+    }
+
+
     public PushOperator(Robot robot,Box box, Office office1, Office office2) {
         this.box = box;
         this.office1 = office1;
@@ -25,7 +30,7 @@ public class PushOperator extends Operator {
     }*/
 
     @Override
-    void add() {
+    public void add() {
         // Push(box,o1,o2)
         // Set location of box to office2
         // Set office1 empty
@@ -36,7 +41,7 @@ public class PushOperator extends Operator {
     }
 
     @Override
-    void delete() {
+    public void delete() {
 
     }
 
@@ -53,6 +58,21 @@ public class PushOperator extends Operator {
         return preconditions;
     }
 
+    public List<Predicate> getAddEffects(Robot robot, Box box, Office office1, Office office2){
+        // List so we could add new add efects if needed for having another behaviour.
+        ArrayList<Predicate> addEfects = new ArrayList<Predicate>();
+        // Add efect of moving the robot to office2
+        RobotLocationPredicate robotLocationPredicate = new RobotLocationPredicate(office2, this.robot);
+        addEfects.add(robotLocationPredicate);
+        // Add efect of changing location of box to office2
+        BoxLocationPredicate boxLocationPredicate = new BoxLocationPredicate(box,office2);
+        addEfects.add(boxLocationPredicate);
+        // Add efect of empty office 1
+        EmptyPredicate emptyPredicate = new EmptyPredicate(office1);
+        addEfects.add(emptyPredicate);
+
+        return addEfects;
+    }
 
     @Override
     public String toString() {

@@ -9,6 +9,10 @@ public class CleanOfficeOperator extends Operator {
     private Office office;
     private Robot robot;
 
+    public CleanOfficeOperator(){
+
+    }
+
     public CleanOfficeOperator(Office office, Robot robot) {
         this.office = office;
         this.robot = robot;
@@ -17,13 +21,13 @@ public class CleanOfficeOperator extends Operator {
 
 
     @Override
-    void add() {
+    public void add() {
         // Clean office
         office.setClean(true);
     }
 
     @Override
-    void delete() {
+    public void delete() {
 
     }
 
@@ -39,6 +43,17 @@ public class CleanOfficeOperator extends Operator {
         return preconditions;
     }
 
+
+
+    public List<Predicate> getAddEffects(Office office){
+
+        // List so we could add new add efects if needed for having another behaviour.
+        ArrayList<Predicate> addEfects = new ArrayList<Predicate>();
+        //RobotLocationPredicate robotLocationPredicate = new RobotLocationPredicate(office2, this.robot);
+        CleanPredicate cleanPredicate = new CleanPredicate(office);
+        addEfects.add(cleanPredicate);
+        return addEfects;
+    }
 
     @Override
     public boolean checkElement() {
