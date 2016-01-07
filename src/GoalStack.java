@@ -23,11 +23,12 @@ public class GoalStack {
         stack.add(0,element);
     }
 
-    public void popFromStack(){
+    public StackElement popFromStack(){
 
-        if (!stack.isEmpty()){
-            stack.remove(0);
-        }
+        StackElement lastStackElement;
+        lastStackElement = stack.get(0);
+        stack.remove(0);
+        return lastStackElement;
     }
 
     public List<StackElement> getStack() {
@@ -90,5 +91,10 @@ public class GoalStack {
             toStringValue = toStringValue + element.toString() + "\n";
         }
         return toStringValue;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

@@ -9,6 +9,8 @@ public class Planner {
     BoardParameters boardParameters;
     GoalStack goalStack;
     List<StackElement> plan;
+    // We will store in this list the subgoal stack as well as the global goal stack.
+    List<List<StackElement>> listGoalStacks;
 
 
 
@@ -16,43 +18,92 @@ public class Planner {
         this.boardParameters = boardParameters;
         this.goalStack = goalStack;
         this.plan = new ArrayList<StackElement>();
+        this.listGoalStacks = new ArrayList<List<StackElement>>();
     }
 
 
     public void applyPlanner(){
 
+        List<StackElement> subgoalStack = new ArrayList<StackElement>();
+        for (StackElement stackElement : goalStack.getStack()){
+            subgoalStack.add(stackElement);
+        }
+
+        // Add the global goal stack.
+        GoalStack finalState = new GoalStack();
+
+        // Add the final global stack to the list of goals that will contain each subgoal.
+        this.listGoalStacks.add(subgoalStack);
         StackElement currentStackElement;
         // Apply
         List<StackElement> stack = goalStack.getStack();
         while(!stack.isEmpty()){
 
-            currentStackElement = stack.get(0);
+            // Pop each element from the main stack at each iteration.
+            currentStackElement = goalStack.popFromStack();
 
             if (currentStackElement instanceof Predicate){
-            //if (Predicate.class.isAssignableFrom(currentStackElement.getClass())){
 
-                // If predicate is already accomplished, pop it from the stack.
+                // If predicate is already accomplished, remove it from the stack.
                 if(((Predicate) currentStackElement).checkPredicate()){
-                    goalStack.popFromStack();
+                    // Get rid of the predicate.
+                    currentStackElement = null;
                 }
                 else{
-                    // Find operator
+                    // If the predicate is unsatisfied, find operator that accomplishes it.
                     OperatorFinder operatorFinder = new OperatorFinder();
                     Operator operator = operatorFinder.findOperator(boardParameters,((Predicate)currentStackElement));
                     List<Predicate> preconditions = operator.listPreconditions();
+
+                    // This list contains the preconditions for each subgoal given by the new operator.
+                    subgoalStack = new ArrayList<StackElement>();
+                    // We add the new operator to the main stack of goals
                     goalStack.addToStack(operator);
+                    // Add the preconditions to the new subgoal
                     for (Predicate precondition : preconditions){
                         goalStack.addToStack(precondition);
+                        subgoalStack.add(precondition);
                     }
+
+                    // Add the new subgoal list to the list of goals.
+                    listGoalStacks.add(subgoalStack);
+
 
                 }
             }else if (currentStackElement instanceof Operator){
-                // If it is an operator, add to the plan and add the efects of the operator to the current state.
-                ((Operator) currentStackElement).add();
-                plan.add(currentStackElement);
+
+                // First check the subgoal stack
+                List<StackElement> currentSubGoals = listGoalStacks.get(listGoalStacks.size()-1);
+                List<StackElement> unaccomplishedSubGoals = new ArrayList<StackElement>();
+
+                // Check if some preconditions have been modified by another subgoals.
+
+                for(StackElement subgoal : currentSubGoals ){
+                    if ( !((Predicate) subgoal).checkPredicate()){
+                        unaccomplishedSubGoals.add(subgoal);
+                    }
+                }
+
+                // If no unaccomplished preconditions, apply given operator.
+                if (unaccomplishedSubGoals.isEmpty()){
+                    ((Operator) currentStackElement).add();
+                    // Add the operator to the plan.
+                    plan.add(currentStackElement);
+                    currentStackElement = null;
+                    // Remove last set of preconditions from this already accomplished subgoal.
+                    listGoalStacks.remove(listGoalStacks.size()-1);
+                }
+                else{
+                    for(StackElement subgoal : unaccomplishedSubGoals){
+                        goalStack.addToStack(subgoal);
+                    }
+
+                    listGoalStacks.add(unaccomplishedSubGoals);
+                }
+
 
                 // Remove applied operator from stack
-                goalStack.popFromStack();
+                //goalStack.popFromStack();
             }
 
 
@@ -80,7 +131,11 @@ public class Planner {
 //
 //            }
 
+            System.out.println("************");
             System.out.println(goalStack);
+            System.out.println("************");
+            System.out.println(listGoalStacks);
+            System.out.println("************");
             System.out.println(plan);
 
         }

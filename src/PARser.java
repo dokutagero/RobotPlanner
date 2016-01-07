@@ -72,13 +72,15 @@ public class PARser {
                     while (m.find()){
                         boardParameters.getBoxByName(m.group(1)).setLocation(
                                 boardParameters.getOffice(Integer.parseInt(m.group(2))-1));
+                        boardParameters.getOffice(Integer.parseInt(m.group(2))-1).setEmpty(false,
+                                boardParameters.getBoxByName(m.group(1)));
                     }
 
                     // Parse empty office
                     p = Pattern.compile("Empty[(]o([0-9]+)[)]");
                     m = p.matcher(text);
                     while (m.find()){
-                        boardParameters.getOffice(Integer.parseInt(m.group(1))-1).setEmpty(true);
+                        boardParameters.getOffice(Integer.parseInt(m.group(1))-1).setEmpty(true, null);
                     }
 
                     break;
