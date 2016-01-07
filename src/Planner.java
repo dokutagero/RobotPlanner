@@ -94,11 +94,16 @@ public class Planner {
                     listGoalStacks.remove(listGoalStacks.size()-1);
                 }
                 else{
-                    for(StackElement subgoal : unaccomplishedSubGoals){
+                    // Put back the operator and its preconditions
+                    goalStack.addToStack(currentStackElement);
+                    //Add all the elements from already stored subgoals
+                    //for(StackElement subgoal : unaccomplishedSubGoals){
+                    //    goalStack.addToStack(subgoal);
+                    //}
+                    //listGoalStacks.add(unaccomplishedSubGoals);
+                    for(StackElement subgoal : listGoalStacks.get(listGoalStacks.size()-1)){
                         goalStack.addToStack(subgoal);
                     }
-
-                    listGoalStacks.add(unaccomplishedSubGoals);
                 }
 
 
@@ -142,8 +147,5 @@ public class Planner {
 
     }
 
-    public void checkPreconditions(){
 
-
-    }
 }

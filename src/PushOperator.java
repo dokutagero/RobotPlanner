@@ -38,6 +38,8 @@ public class PushOperator extends Operator {
         box.setLocation(office2);
         office1.setEmpty(true, null);
         robot.setLocation(office2);
+        // Could add this statement to delete function
+        office2.setEmpty(false, box);
     }
 
     @Override

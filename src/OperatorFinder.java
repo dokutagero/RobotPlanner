@@ -20,20 +20,62 @@ public class OperatorFinder {
         if (predicate instanceof RobotLocationPredicate) {
             // If robot location predicate we create a move operator
             MoveOperator operator = new MoveOperator();
-            
+            //////
+            //int[] adjacents = new int[];
+            Office nextOffice = ((RobotLocationPredicate) predicate).getOffice();
+
+            // If offices are not adjacent, find adjacent.
+            if(!checkAdjacents(((RobotLocationPredicate) predicate).getRobot().getOffice(),
+                    ((RobotLocationPredicate) predicate).getOffice())) {
+
+
+                List<Integer> adjacents = new ArrayList<Integer>();
+                adjacents = Arrays.asList(adjacentOffices[(((RobotLocationPredicate) predicate).getRobot().getOffice().getOfficeNumber() - 1)]);
+                int nextMove;
+
+                if (((RobotLocationPredicate) predicate).getRobot().getOffice().getOfficeNumber() <
+                        ((RobotLocationPredicate) predicate).getOffice().getOfficeNumber()) {
+
+                    int indexOfMax = 0;
+
+                    for (int i = 1; i < adjacents.size(); i++) {
+                        if (adjacents.get(i) > adjacents.get(indexOfMax)) {
+                            indexOfMax = i;
+                        }
+                    }
+                    nextMove = adjacents.get(indexOfMax);
+                    nextOffice = boardParameters.getOffice(nextMove-1);
+                } else {
+                    int indexOfMin = 0;
+                    for (int i = 1; i < adjacents.size(); i++) {
+                        if (adjacents.get(i) < adjacents.get(indexOfMin)) {
+                            indexOfMin = i;
+                        }
+                    }
+                    nextMove = adjacents.get(indexOfMin);
+                    nextOffice = boardParameters.getOffice(nextMove-1);
+                }
+            }
+
+//            MoveOperator moveOperatorAdjacent = new MoveOperator(boardParameters.getRobot(),
+//                    boardParameters.getRobot().getLocation(),
+//                    nextOffice);
+
+            /////
             List<Predicate> predicates = operator.getAddEffects(((RobotLocationPredicate) predicate).getRobot(),
                     ((RobotLocationPredicate) predicate).getRobot().getLocation(),
-                    ((RobotLocationPredicate) predicate).getOffice());
+                    //((RobotLocationPredicate) predicate).getOffice());
+                    nextOffice);
             // Check if any of the add efects match our unsatisfied goal
 
             for (Predicate operatorAddEffect : predicates) {
                 if (predicate.getClass().equals(operatorAddEffect.getClass())) {
-                    if (((RobotLocationPredicate) predicate).getOffice() ==
+                    if (nextOffice ==
                             ((RobotLocationPredicate) operatorAddEffect).getOffice()) {
 
                         MoveOperator moveOperator = new MoveOperator(((RobotLocationPredicate) predicate).getRobot(),
                                 ((RobotLocationPredicate) predicate).getRobot().getLocation(),
-                                ((RobotLocationPredicate) predicate).getOffice());
+                                nextOffice);
 
                         return moveOperator;
                     }
@@ -130,6 +172,24 @@ public class OperatorFinder {
 
         MoveOperator moveOperator = new MoveOperator();
         return moveOperator;
+    }
+
+    public boolean checkAdjacents(Office office1, Office office2){
+
+        List<Integer> adjacents = new ArrayList<Integer>();
+        //adjacents = Arrays.asList(adjacentOffices[(((AdjacentPredicate) predicate).getOffice1().getOfficeNumber()-1)]);
+        adjacents = Arrays.asList(adjacentOffices[office1.getOfficeNumber()-1]);
+        return adjacents.contains(Integer.valueOf(office2.getOfficeNumber()));
+//        int [] offices = this.adjacentOffices[this.office2.getOfficeNumber()-1];
+//        for(int i=0;i<offices.length;i++){
+//            System.out.println((offices[i]));
+//            System.out.println((this.office1.getOfficeNumber()));
+//            if(offices[i] == this.office1.getOfficeNumber()){
+//                return true;
+    }
+
+    public Integer getBestAdjacentToPushTo(Office officeFrom){
+
     }
 }
 
