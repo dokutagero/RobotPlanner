@@ -20,6 +20,7 @@ public class OperatorFinder {
         if (predicate instanceof RobotLocationPredicate) {
             // If robot location predicate we create a move operator
             MoveOperator operator = new MoveOperator();
+            
             List<Predicate> predicates = operator.getAddEffects(((RobotLocationPredicate) predicate).getRobot(),
                     ((RobotLocationPredicate) predicate).getRobot().getLocation(),
                     ((RobotLocationPredicate) predicate).getOffice());
@@ -93,37 +94,38 @@ public class OperatorFinder {
                 }
             }
         }else{
-            // CHECK ADJACENT PREDICATE
-            //int[] adjacents = new int[];
-            adjacents = adjacentOffices[(((AdjacentPredicate) predicate).getOffice1().getOfficeNumber()-1)][];
-            int nextMove;
-
-            if (((AdjacentPredicate) predicate).getOffice1().getOfficeNumber() <
-                    ((AdjacentPredicate) predicate).getOffice2().getOfficeNumber()){
-
-                int indexOfMax=0;
-
-                for(int i=1; i<adjacents.length; i++){
-                    if (adjacents[i] > adjacents[indexOfMax]){
-                        indexOfMax = i;
-                    }
-                }
-                nextMove = adjacents[indexOfMax];
-            }else{
-                int indexOfMin=0;
-                for(int i=1; i<adjacents.length; i++){
-                    if(adjacents[i] < adjacents[indexOfMin] ){
-                        indexOfMin = i;
-                    }
-                }
-                nextMove = adjacents[indexOfMin];
-            }
-
-            MoveOperator moveOperatorAdjacent = new MoveOperator(((RobotLocationPredicate) predicate).getRobot(),
-                    ((RobotLocationPredicate) predicate).getRobot().getLocation(),
-                    (boardParameters.getOffice(nextMove-1)));
-
-            return moveOperatorAdjacent;
+//            // CHECK ADJACENT PREDICATE
+//            //int[] adjacents = new int[];
+//            List<Integer> adjacents = new ArrayList<Integer>();
+//            adjacents = Arrays.asList(adjacentOffices[(((AdjacentPredicate) predicate).getOffice1().getOfficeNumber()-1)]);
+//            int nextMove;
+//
+//            if (((AdjacentPredicate) predicate).getOffice1().getOfficeNumber() <
+//                    ((AdjacentPredicate) predicate).getOffice2().getOfficeNumber()){
+//
+//                int indexOfMax=0;
+//
+//                for(int i=1; i<adjacents.size(); i++){
+//                    if (adjacents.get(i) > adjacents.get(indexOfMax)){
+//                        indexOfMax = i;
+//                    }
+//                }
+//                nextMove = adjacents.get(indexOfMax);
+//            }else{
+//                int indexOfMin=0;
+//                for(int i=1; i<adjacents.size(); i++){
+//                    if(adjacents.get(i) < adjacents.get(indexOfMin) ){
+//                        indexOfMin = i;
+//                    }
+//                }
+//                nextMove = adjacents.get(indexOfMin);
+//            }
+//
+//            MoveOperator moveOperatorAdjacent = new MoveOperator(boardParameters.getRobot(),
+//                    boardParameters.getRobot().getLocation(),
+//                    (boardParameters.getOffice(nextMove-1)));
+//
+//            return moveOperatorAdjacent;
         }
 
         MoveOperator moveOperator = new MoveOperator();
