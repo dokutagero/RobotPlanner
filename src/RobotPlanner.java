@@ -11,5 +11,12 @@ public class RobotPlanner {
         BoardParameters boardParameters = parser.parse(filename);
 
 
+        GoalStack goalStack = new GoalStack();
+        goalStack.populateGoalStack(boardParameters);
+        System.out.println(goalStack.toString());
+
+        // Apply planner
+        Planner planner = new Planner(boardParameters, goalStack);
+        planner.applyPlanner();
     }
 }

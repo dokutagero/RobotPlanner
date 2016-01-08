@@ -3,17 +3,21 @@
  */
 public class Robot {
 
-    int location;
+    Office office;
 
-    public Robot(int location) {
-        this.location = location;
+    public Robot(Office office) {
+        this.office = office;
     }
 
-    public int getLocation() {
-        return location;
+    public Office getLocation() {
+        return office;
     }
 
-    public void setLocation(int location) {
-        this.location = location;
+    public void setLocation(Office office) {
+        this.office = office;
+    }
+
+    public Office getOffice() {
+        return office;
     }
 }

@@ -1,22 +1,23 @@
 /**
  * Created by juarugui on 05/01/16.
  */
-public class EmptyPredicate extends Predicate {
+public class CleanPredicate extends Predicate {
 
     private Office office;
 
-    public EmptyPredicate(Office office) {
+    public CleanPredicate(Office office) {
         this.office = office;
     }
 
-    //@Override
+    @Override
     boolean checkPredicate() {
-        return office.getEmpty();
+        return office.getClean();
     }
+
 
     @Override
     public String toString() {
-        return "Empty{" +
+        return "Clean{" +
                 office.getOfficeNumber() +
                 '}';
     }
@@ -26,8 +27,9 @@ public class EmptyPredicate extends Predicate {
         return this.checkPredicate();
     }
 
-    @Override
-    void applyElement() {
+    // Look for operator with goal in its effects
+    public void applyElement() {
+        // check for operators that satisfy this predicate.
 
     }
 

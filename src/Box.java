@@ -3,7 +3,7 @@
  */
 public class Box {
 
-    public int location;
+    public Office office;
     public String boxName;
 
     Box(String boxName){
@@ -13,7 +13,12 @@ public class Box {
     public String getBoxName(){
         return this.boxName;
     }
-    public void setLocation(int location){
-        this.location = location;
+
+    public void setLocation(Office office){
+        this.office = office;
+    }
+
+    public Office getOffice() {
+        return office;
     }
 }
