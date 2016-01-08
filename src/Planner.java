@@ -137,10 +137,20 @@ public class Planner {
 //            }
 
             System.out.println("************");
+            System.out.println("CURRENT STACK");
+            System.out.println("************");
+
             System.out.println(goalStack);
+
+            System.out.println("************");
+            System.out.println("LIST OF SUBGOALS");
             System.out.println("************");
             System.out.println(listGoalStacks);
+
             System.out.println("************");
+            System.out.println("PLAN");
+            System.out.println("************");
+
             System.out.println(plan);
 
         }
