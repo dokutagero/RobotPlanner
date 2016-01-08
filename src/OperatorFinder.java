@@ -185,12 +185,7 @@ public class OperatorFinder {
         //adjacents = Arrays.asList(adjacentOffices[(((AdjacentPredicate) predicate).getOffice1().getOfficeNumber()-1)]);
         adjacents = Arrays.asList(adjacentOffices[office1.getOfficeNumber()-1]);
         return adjacents.contains(Integer.valueOf(office2.getOfficeNumber()));
-//        int [] offices = this.adjacentOffices[this.office2.getOfficeNumber()-1];
-//        for(int i=0;i<offices.length;i++){
-//            System.out.println((offices[i]));
-//            System.out.println((this.office1.getOfficeNumber()));
-//            if(offices[i] == this.office1.getOfficeNumber()){
-//                return true;
+
     }
 
     public Integer getBestAdjacentToPushTo(Office officeFrom, BoardParameters boardParameters){
@@ -237,18 +232,6 @@ public class OperatorFinder {
 
         bestAdjacentToPush = officeIndices.get(distances.indexOf(Collections.min(distances)));
 
-
-
-        //Collections.sort(distances);
-        // Sort the distances in ascending order.
-        //Collections.reverse(distances);
-
-
-
-        //Integer minDistance = Collections.min()
-
-        //Integer a;
-        //a = 5;
         return bestAdjacentToPush;
 
     }

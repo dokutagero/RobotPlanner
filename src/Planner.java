@@ -29,8 +29,6 @@ public class Planner {
             subgoalStack.add(stackElement);
         }
 
-        // Add the global goal stack.
-        GoalStack finalState = new GoalStack();
 
         // Add the final global stack to the list of goals that will contain each subgoal.
         this.listGoalStacks.add(subgoalStack);
@@ -94,47 +92,16 @@ public class Planner {
                     listGoalStacks.remove(listGoalStacks.size()-1);
                 }
                 else{
-                    // Put back the operator and its preconditions
+                    // Put back the operator and put back the preconditions from the subgoal list
                     goalStack.addToStack(currentStackElement);
-                    //Add all the elements from already stored subgoals
-                    //for(StackElement subgoal : unaccomplishedSubGoals){
-                    //    goalStack.addToStack(subgoal);
-                    //}
-                    //listGoalStacks.add(unaccomplishedSubGoals);
+
                     for(StackElement subgoal : listGoalStacks.get(listGoalStacks.size()-1)){
                         goalStack.addToStack(subgoal);
                     }
                 }
 
-
-                // Remove applied operator from stack
-                //goalStack.popFromStack();
             }
 
-
-            // Check will call preconditions on operators and check predicate
-            // on predicate.
-//            if (currentStackElement.checkElement()){
-//                // If predicate is true, pop from the stack.
-//                if (currentStackElement instanceof Predicate){
-//                    goalStack.popFromStack();
-//                }else{
-//                // If preconditions of operator are true, add to plan
-//                    plan.add(currentStackElement);
-//                    // apply add and delete
-//                    currentStackElement.applyElement();
-//
-//                }
-//            }else{
-//                    // If goal predicate not satisfied: find operator and
-//                    // add it to the stack as well as operator preconditions
-//                    if (currentStackElement instanceof Predicate){
-//                        currentStackElement.applyElement();
-//                    }else{
-//                    // If operator does not
-//                    }
-//
-//            }
 
             System.out.println("************");
             System.out.println("CURRENT STACK");
