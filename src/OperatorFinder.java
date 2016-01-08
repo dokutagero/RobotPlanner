@@ -115,10 +115,15 @@ public class OperatorFinder {
 
             // ADD HEURISTICS TO SELECTING WHERE TO BE PUSHED
             // Find office to be pushed (initially to the first adjacent office)
-            Office officeToBePushed = boardParameters.getOffice(adjacentOffices[(((EmptyPredicate) predicate).getOffice().getOfficeNumber() - 1)][0]-1);
-            System.out.println(((EmptyPredicate) predicate).getOffice().getOfficeNumber()-1);
-            System.out.println(adjacentOffices[4][0]);
-            System.out.println(adjacentOffices[((EmptyPredicate) predicate).getOffice().getOfficeNumber() - 1][0]);
+
+            // Get the best office to push the box
+            Integer bestAdjacentToPushTo = getBestAdjacentToPushTo(((EmptyPredicate) predicate).getOffice(), boardParameters);
+            //Office officeToBePushed = boardParameters.getOffice(adjacentOffices[(((EmptyPredicate) predicate).getOffice().getOfficeNumber() - 1)][bestAdjacentToPushTo]);
+            Office officeToBePushed = boardParameters.getOffice(bestAdjacentToPushTo);
+            //System.out.println(((EmptyPredicate) predicate).getOffice().getOfficeNumber()-1);
+            //System.out.println(adjacentOffices[4][0]);
+            //System.out.println(adjacentOffices[((EmptyPredicate) predicate).getOffice().getOfficeNumber() - 1][0]);
+
             // We check the effects of the Push operator.
             List<Predicate> predicates = pushOperatorChecker.getAddEffects(boardParameters.getRobot(), boxInOffice,
                     ((EmptyPredicate) predicate).getOffice(),
@@ -188,7 +193,63 @@ public class OperatorFinder {
 //                return true;
     }
 
-    public Integer getBestAdjacentToPushTo(Office officeFrom){
+    public Integer getBestAdjacentToPushTo(Office officeFrom, BoardParameters boardParameters){
+
+        Integer officePosition = officeFrom.getOfficeNumber();
+        Integer bestAdjacentToPush = 0;
+        // Adjacent to box to be pushed in office
+        List<Integer> adjacents = new ArrayList<Integer>();
+        adjacents = Arrays.asList(adjacentOffices[officePosition-1]);
+
+        Box boxInOffice = officeFrom.getBox();
+        String boxName = boxInOffice.getBoxName();
+        Integer boxFinalOffice = 0;
+
+        List<BoxLocationTuple> boxFinalLocationTuples = boardParameters.getGoalBoxLocation();
+        for(BoxLocationTuple boxLocationTuple : boxFinalLocationTuples){
+            if (boxName.equals(boxLocationTuple.getBoxName())){
+                boxFinalOffice = boxLocationTuple.getBoxLocation();
+            }
+        }
+
+        // Now we get the closest office to the final position that is empty & clean
+        int distanceLinear;
+        int distanceMap;
+        List<Integer> distances = new ArrayList<>();
+        List<Integer> officeIndices = new ArrayList<>();
+        // Search through all the adjacent offices.
+        for (int i=0;i<adjacents.size();i++){
+            // Compute the distances between adjacents and final box location
+            distanceLinear = Math.abs(boardParameters.getOffice(adjacents.get(i)-1).getOfficeNumber()-boxFinalOffice);
+            //
+            if (distanceLinear>2) {
+                distanceMap = (int) Math.ceil((double) distanceLinear / 3);
+            }
+            else{
+                distanceMap = distanceLinear;
+            }
+            // Only add those adjacents that are empty
+            if(boardParameters.getOffice(adjacents.get(i)-1).getEmpty()) {
+                distances.add(distanceMap);
+                officeIndices.add(adjacents.get(i)-1);
+            }
+        }
+
+        bestAdjacentToPush = officeIndices.get(distances.indexOf(Collections.min(distances)));
+
+
+
+        //Collections.sort(distances);
+        // Sort the distances in ascending order.
+        //Collections.reverse(distances);
+
+
+
+        //Integer minDistance = Collections.min()
+
+        //Integer a;
+        //a = 5;
+        return bestAdjacentToPush;
 
     }
 }
