@@ -36,8 +36,10 @@ public class PushOperator extends Operator {
         // Set office1 empty
         // Robot location office2
         box.setLocation(office2);
-        office1.setEmpty(true);
+        office1.setEmpty(true, null);
         robot.setLocation(office2);
+        // Could add this statement to delete function
+        office2.setEmpty(false, box);
     }
 
     @Override
@@ -76,7 +78,7 @@ public class PushOperator extends Operator {
 
     @Override
     public String toString() {
-        return "Push{" +
+        return "PUSH{" +
                 box.getBoxName() +
                 ",o" + office1.getOfficeNumber() +
                 ",o" + office2.getOfficeNumber() +

@@ -66,7 +66,7 @@ public class MoveOperator extends Operator {
 
     @Override
     public String toString() {
-        return "Move{" +
+        return "MOVE{" +
                 "o" + office1.getOfficeNumber() + ',' +
                 "o" + office2.getOfficeNumber() +
                 '}';

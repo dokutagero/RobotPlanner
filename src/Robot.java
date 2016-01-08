@@ -16,4 +16,8 @@ public class Robot {
     public void setLocation(Office office) {
         this.office = office;
     }
+
+    public Office getOffice() {
+        return office;
+    }
 }

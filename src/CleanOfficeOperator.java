@@ -70,7 +70,7 @@ public class CleanOfficeOperator extends Operator {
 
     @Override
     public String toString() {
-        return "Clean-office{"+
+        return "CLEAN-OFFICE{"+
                 "o" + office.getOfficeNumber() +
                 '}';
     }

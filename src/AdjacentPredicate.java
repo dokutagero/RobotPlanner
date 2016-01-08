@@ -23,8 +23,15 @@ public class AdjacentPredicate extends Predicate {
 
     //@Override
     boolean checkPredicate() {
-        int [] offices = this.adjacentOffices[this.office2.getOfficeNumber()];
-        return (Arrays.asList(offices).contains(this.office1.getOfficeNumber()));
+        int [] offices = this.adjacentOffices[this.office2.getOfficeNumber()-1];
+        for(int i=0;i<offices.length;i++){
+            System.out.println((offices[i]));
+            System.out.println((this.office1.getOfficeNumber()));
+            if(offices[i] == this.office1.getOfficeNumber()){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -43,5 +50,17 @@ public class AdjacentPredicate extends Predicate {
     @Override
     void applyElement() {
 
+    }
+
+    public int[][] getAdjacentOffices() {
+        return adjacentOffices;
+    }
+
+    public Office getOffice1() {
+        return office1;
+    }
+
+    public Office getOffice2() {
+        return office2;
     }
 }
