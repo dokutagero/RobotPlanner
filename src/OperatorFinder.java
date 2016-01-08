@@ -21,7 +21,6 @@ public class OperatorFinder {
             // If robot location predicate we create a move operator
             MoveOperator operator = new MoveOperator();
             //////
-            //int[] adjacents = new int[];
             Office nextOffice = ((RobotLocationPredicate) predicate).getOffice();
 
             // If offices are not adjacent, find adjacent.
