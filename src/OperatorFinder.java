@@ -99,9 +99,7 @@ public class OperatorFinder {
             Integer bestAdjacentToPushTo = getBestAdjacentToPushTo(((EmptyPredicate) predicate).getOffice(), boardParameters);
             //Office officeToBePushed = boardParameters.getOffice(adjacentOffices[(((EmptyPredicate) predicate).getOffice().getOfficeNumber() - 1)][bestAdjacentToPushTo]);
             Office officeToBePushed = boardParameters.getOffice(bestAdjacentToPushTo);
-            //System.out.println(((EmptyPredicate) predicate).getOffice().getOfficeNumber()-1);
-            //System.out.println(adjacentOffices[4][0]);
-            //System.out.println(adjacentOffices[((EmptyPredicate) predicate).getOffice().getOfficeNumber() - 1][0]);
+
 
             // We check the effects of the Push operator.
             List<Predicate> predicates = pushOperatorChecker.getAddEffects(boardParameters.getRobot(), boxInOffice,
@@ -119,39 +117,41 @@ public class OperatorFinder {
 
                 }
             }
-        }else{
-//            // CHECK ADJACENT PREDICATE
-//            //int[] adjacents = new int[];
-//            List<Integer> adjacents = new ArrayList<Integer>();
-//            adjacents = Arrays.asList(adjacentOffices[(((AdjacentPredicate) predicate).getOffice1().getOfficeNumber()-1)]);
-//            int nextMove;
-//
-//            if (((AdjacentPredicate) predicate).getOffice1().getOfficeNumber() <
-//                    ((AdjacentPredicate) predicate).getOffice2().getOfficeNumber()){
-//
-//                int indexOfMax=0;
-//
-//                for(int i=1; i<adjacents.size(); i++){
-//                    if (adjacents.get(i) > adjacents.get(indexOfMax)){
-//                        indexOfMax = i;
-//                    }
-//                }
-//                nextMove = adjacents.get(indexOfMax);
-//            }else{
-//                int indexOfMin=0;
-//                for(int i=1; i<adjacents.size(); i++){
-//                    if(adjacents.get(i) < adjacents.get(indexOfMin) ){
-//                        indexOfMin = i;
-//                    }
-//                }
-//                nextMove = adjacents.get(indexOfMin);
-//            }
-//
-//            MoveOperator moveOperatorAdjacent = new MoveOperator(boardParameters.getRobot(),
-//                    boardParameters.getRobot().getLocation(),
-//                    (boardParameters.getOffice(nextMove-1)));
-//
-//            return moveOperatorAdjacent;
+        }else if (predicate instanceof BoxLocationPredicate){
+//            // CHECK BOX-LOCATION PREDICATE
+            PushOperator pushOperatorChecker = new PushOperator();
+            Box boxInOffice = ((BoxLocationPredicate) predicate).getOffice().getBox();
+
+            Integer bestAdjacentToPushTo = getBestAdjacentToPushTo(((BoxLocationPredicate) predicate).getOffice(), boardParameters);
+            Office officeToBePushed = boardParameters.getOffice(bestAdjacentToPushTo);
+
+            if(!officeToBePushed.getEmpty()){
+                boxInOffice = officeToBePushed.getBox();
+                bestAdjacentToPushTo = getBestAdjacentToPushTo(officeToBePushed, boardParameters);
+                officeToBePushed = boardParameters.getOffice(bestAdjacentToPushTo);
+
+            }
+
+            List<Predicate> predicates = pushOperatorChecker.getAddEffects(boardParameters.getRobot(), boxInOffice,
+                    ((BoxLocationPredicate) predicate).getOffice(),
+                    officeToBePushed);
+            for (Predicate operatorPushEffect : predicates) {
+                if (predicate.getClass().equals(operatorPushEffect.getClass())) {
+                    if (((BoxLocationPredicate) predicate).getOffice() == ((BoxLocationPredicate) operatorPushEffect).getOffice()) {
+
+
+                        PushOperator pushOperator = new PushOperator(boardParameters.getRobot(), boxInOffice,
+                                ((BoxLocationPredicate) predicate).getOffice(),
+                                officeToBePushed);
+
+                        return pushOperator;
+                    }
+
+                }
+            }
+        }
+        else{
+
         }
 
         MoveOperator moveOperator = new MoveOperator();

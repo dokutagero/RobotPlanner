@@ -109,6 +109,8 @@ public class Planner {
 
                         System.out.println(plan);
 
+                        System.out.println("\n\n\n\n\n\n");
+
                     }
                     else{
                         // Put back the operator and put back the preconditions from the subgoal list

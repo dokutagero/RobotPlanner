@@ -25,8 +25,6 @@ public class AdjacentPredicate extends Predicate {
     boolean checkPredicate() {
         int [] offices = this.adjacentOffices[this.office2.getOfficeNumber()-1];
         for(int i=0;i<offices.length;i++){
-            System.out.println((offices[i]));
-            System.out.println((this.office1.getOfficeNumber()));
             if(offices[i] == this.office1.getOfficeNumber()){
                 return true;
             }

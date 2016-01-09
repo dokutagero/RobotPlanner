@@ -24,4 +24,11 @@ public class BoxLocationPredicate extends Predicate {
                 '}';
     }
 
+    public Office getOffice() {
+        return office;
+    }
+
+    public Box getBox() {
+        return box;
+    }
 }

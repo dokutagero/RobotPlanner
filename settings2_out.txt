@@ -1,0 +1,833 @@
+************
+CURRENT STACK
+************
+CLEAN-OFFICE{o1}
+Clean{2}
+Clean{3}
+Clean{4}
+Clean{5}
+Clean{6}
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{1}, Empty{1}, Dirty{1}]]
+************
+PLAN
+************
+[MOVE{o2,o1}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+Clean{2}
+Clean{3}
+Clean{4}
+Clean{5}
+Clean{6}
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+CLEAN-OFFICE{o3}
+Clean{4}
+Clean{5}
+Clean{6}
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{3}, Empty{3}, Dirty{3}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+CLEAN-OFFICE{o3}
+Clean{4}
+Clean{5}
+Clean{6}
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{3}, Empty{3}, Dirty{3}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+Clean{4}
+Clean{5}
+Clean{6}
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+PUSH{A,o4,o1}
+Robot-location{4}
+CLEAN-OFFICE{o4}
+Clean{5}
+Clean{6}
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{4}, Empty{4}, Dirty{4}], [Robot-location{4}, BoxLocation{A,4}, Empty{1}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+PUSH{A,o4,o1}
+Robot-location{4}
+CLEAN-OFFICE{o4}
+Clean{5}
+Clean{6}
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{4}, Empty{4}, Dirty{4}], [Robot-location{4}, BoxLocation{A,4}, Empty{1}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+PUSH{A,o4,o1}
+Robot-location{4}
+CLEAN-OFFICE{o4}
+Clean{5}
+Clean{6}
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{4}, Empty{4}, Dirty{4}], [Robot-location{4}, BoxLocation{A,4}, Empty{1}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+Robot-location{4}
+CLEAN-OFFICE{o4}
+Clean{5}
+Clean{6}
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{4}, Empty{4}, Dirty{4}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+CLEAN-OFFICE{o4}
+Clean{5}
+Clean{6}
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{4}, Empty{4}, Dirty{4}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+Clean{5}
+Clean{6}
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+CLEAN-OFFICE{o5}
+Clean{6}
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{5}, Empty{5}, Dirty{5}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}, MOVE{o4,o5}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+Clean{6}
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}, MOVE{o4,o5}, CLEAN-OFFICE{o5}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+CLEAN-OFFICE{o6}
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{6}, Empty{6}, Dirty{6}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}, MOVE{o4,o5}, CLEAN-OFFICE{o5}, MOVE{o5,o6}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+Clean{7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}, MOVE{o4,o5}, CLEAN-OFFICE{o5}, MOVE{o5,o6}, CLEAN-OFFICE{o6}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+PUSH{B,o7,o8}
+Robot-location{7}
+CLEAN-OFFICE{o7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{7}, Empty{7}, Dirty{7}], [Robot-location{7}, BoxLocation{B,7}, Empty{8}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}, MOVE{o4,o5}, CLEAN-OFFICE{o5}, MOVE{o5,o6}, CLEAN-OFFICE{o6}, MOVE{o6,o5}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+PUSH{B,o7,o8}
+Robot-location{7}
+CLEAN-OFFICE{o7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{7}, Empty{7}, Dirty{7}], [Robot-location{7}, BoxLocation{B,7}, Empty{8}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}, MOVE{o4,o5}, CLEAN-OFFICE{o5}, MOVE{o5,o6}, CLEAN-OFFICE{o6}, MOVE{o6,o5}, MOVE{o5,o4}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+PUSH{B,o7,o8}
+Robot-location{7}
+CLEAN-OFFICE{o7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{7}, Empty{7}, Dirty{7}], [Robot-location{7}, BoxLocation{B,7}, Empty{8}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}, MOVE{o4,o5}, CLEAN-OFFICE{o5}, MOVE{o5,o6}, CLEAN-OFFICE{o6}, MOVE{o6,o5}, MOVE{o5,o4}, MOVE{o4,o7}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+Robot-location{7}
+CLEAN-OFFICE{o7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{7}, Empty{7}, Dirty{7}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}, MOVE{o4,o5}, CLEAN-OFFICE{o5}, MOVE{o5,o6}, CLEAN-OFFICE{o6}, MOVE{o6,o5}, MOVE{o5,o4}, MOVE{o4,o7}, PUSH{B,o7,o8}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+CLEAN-OFFICE{o7}
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{7}, Empty{7}, Dirty{7}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}, MOVE{o4,o5}, CLEAN-OFFICE{o5}, MOVE{o5,o6}, CLEAN-OFFICE{o6}, MOVE{o6,o5}, MOVE{o5,o4}, MOVE{o4,o7}, PUSH{B,o7,o8}, MOVE{o8,o7}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+Clean{8}
+Clean{9}
+Empty{1}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}, MOVE{o4,o5}, CLEAN-OFFICE{o5}, MOVE{o5,o6}, CLEAN-OFFICE{o6}, MOVE{o6,o5}, MOVE{o5,o4}, MOVE{o4,o7}, PUSH{B,o7,o8}, MOVE{o8,o7}, CLEAN-OFFICE{o7}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+PUSH{A,o1,o2}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{1}, BoxLocation{A,1}, Empty{2}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}, MOVE{o4,o5}, CLEAN-OFFICE{o5}, MOVE{o5,o6}, CLEAN-OFFICE{o6}, MOVE{o6,o5}, MOVE{o5,o4}, MOVE{o4,o7}, PUSH{B,o7,o8}, MOVE{o8,o7}, CLEAN-OFFICE{o7}, MOVE{o7,o4}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+PUSH{A,o1,o2}
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}], [Robot-location{1}, BoxLocation{A,1}, Empty{2}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}, MOVE{o4,o5}, CLEAN-OFFICE{o5}, MOVE{o5,o6}, CLEAN-OFFICE{o6}, MOVE{o6,o5}, MOVE{o5,o4}, MOVE{o4,o7}, PUSH{B,o7,o8}, MOVE{o8,o7}, CLEAN-OFFICE{o7}, MOVE{o7,o4}, MOVE{o4,o1}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+Empty{3}
+Empty{4}
+Empty{5}
+Empty{6}
+Empty{7}
+Empty{9}
+BoxLocation{A,2}
+BoxLocation{B,8}
+Robot-location{5}
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}, MOVE{o4,o5}, CLEAN-OFFICE{o5}, MOVE{o5,o6}, CLEAN-OFFICE{o6}, MOVE{o6,o5}, MOVE{o5,o4}, MOVE{o4,o7}, PUSH{B,o7,o8}, MOVE{o8,o7}, CLEAN-OFFICE{o7}, MOVE{o7,o4}, MOVE{o4,o1}, PUSH{A,o1,o2}]
+
+
+
+
+
+
+
+************
+CURRENT STACK
+************
+
+************
+LIST OF SUBGOALS
+************
+[[Clean{1}, Clean{2}, Clean{3}, Clean{4}, Clean{5}, Clean{6}, Clean{7}, Clean{8}, Clean{9}, Empty{1}, Empty{3}, Empty{4}, Empty{5}, Empty{6}, Empty{7}, Empty{9}, BoxLocation{A,2}, BoxLocation{B,8}, Robot-location{5}]]
+************
+PLAN
+************
+[MOVE{o2,o1}, CLEAN-OFFICE{o1}, MOVE{o1,o2}, MOVE{o2,o3}, CLEAN-OFFICE{o3}, MOVE{o3,o2}, MOVE{o2,o1}, MOVE{o1,o4}, PUSH{A,o4,o1}, MOVE{o1,o4}, CLEAN-OFFICE{o4}, MOVE{o4,o5}, CLEAN-OFFICE{o5}, MOVE{o5,o6}, CLEAN-OFFICE{o6}, MOVE{o6,o5}, MOVE{o5,o4}, MOVE{o4,o7}, PUSH{B,o7,o8}, MOVE{o8,o7}, CLEAN-OFFICE{o7}, MOVE{o7,o4}, MOVE{o4,o1}, PUSH{A,o1,o2}, MOVE{o2,o5}]
+
+
+
+
+
+
+

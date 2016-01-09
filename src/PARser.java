@@ -42,7 +42,6 @@ public class PARser {
                     Matcher m = p.matcher(lineScanner.next());
                     //boardParameters.setNumOffices(m.groupCount());
                     while (m.find()){
-                        System.out.println(m.group(1));
                         Office office = new Office(Integer.parseInt(m.group(1)));
                         boardParameters.addOffice(office);
                     }
