@@ -5,9 +5,6 @@ import java.util.List;
  */
 public abstract class Operator extends StackElement {
 
-    public String operatorType;
-
-    //abstract boolean checkPreconditions();
     public abstract void add();
     public abstract void delete();
     public abstract List<Predicate> listPreconditions();

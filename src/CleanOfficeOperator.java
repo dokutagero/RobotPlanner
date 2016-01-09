@@ -55,17 +55,6 @@ public class CleanOfficeOperator extends Operator {
         return addEfects;
     }
 
-    @Override
-    public boolean checkElement() {
-
-        return false;//this.checkPreconditions();
-    }
-
-    @Override
-    void applyElement() {
-        this.add();
-        //this.delete()
-    }
 
 
     @Override

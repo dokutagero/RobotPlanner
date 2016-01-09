@@ -55,16 +55,6 @@ public class MoveOperator extends Operator {
 
 
     @Override
-    public boolean checkElement() {
-        return false;// this.checkPreconditions();
-    }
-
-    @Override
-    void applyElement() {
-        this.add();
-    }
-
-    @Override
     public String toString() {
         return "MOVE{" +
                 "o" + office1.getOfficeNumber() + ',' +

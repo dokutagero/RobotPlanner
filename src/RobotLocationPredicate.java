@@ -19,21 +19,7 @@ public class RobotLocationPredicate extends Predicate {
     boolean checkPredicate() {
         return (this.robot.getLocation()==this.office);
     }
-//
-//    @Override
-//    String getType() {
-//        return this.type;
-//    }
 
-    @Override
-    public boolean checkElement() {
-        return this.checkPredicate();
-    }
-
-    @Override
-    void applyElement() {
-
-    }
 
     public Office getOffice() {
         return office;

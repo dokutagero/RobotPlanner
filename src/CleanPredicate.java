@@ -22,16 +22,7 @@ public class CleanPredicate extends Predicate {
                 '}';
     }
 
-    @Override
-    public boolean checkElement() {
-        return this.checkPredicate();
-    }
 
-    // Look for operator with goal in its effects
-    public void applyElement() {
-        // check for operators that satisfy this predicate.
-
-    }
 
     public Office getOffice() {
         return office;

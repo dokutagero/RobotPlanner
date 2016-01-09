@@ -4,7 +4,7 @@
 public class RobotPlanner {
 
     public static void main(String[] args){
-        String filename = new String("settings2.txt");
+        String filename = new String("settings.txt");
 
         //Parse initial files and obtain the board configuration.
         PARser parser = new PARser();

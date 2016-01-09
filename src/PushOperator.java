@@ -85,13 +85,5 @@ public class PushOperator extends Operator {
                 '}';
     }
 
-    @Override
-    public boolean checkElement() {
-        return false;//this.checkPreconditions();
-    }
 
-    @Override
-    void applyElement() {
-
-    }
 }

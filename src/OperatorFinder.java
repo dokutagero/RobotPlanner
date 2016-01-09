@@ -10,7 +10,10 @@ public class OperatorFinder {
 
     private Integer[][] adjacentOffices = new Integer[][]{{2,4},{1,3,5},{2,6},{1,5,7},
                                                 {2,4,6,8},{3,5,9},{4,8},
-                                                {5,7,9},{6,8}};;
+                                                {5,7,9},{6,8}};
+
+    Integer[] xcoordinates = new Integer[]{1,1,1,2,2,2,3,3,3};
+    Integer[] ycoordinates = new Integer[]{1,2,3,1,2,3,1,2,3};
 
 
     public Operator findOperator(BoardParameters boardParameters, Predicate predicate) {
@@ -27,33 +30,9 @@ public class OperatorFinder {
             if(!checkAdjacents(((RobotLocationPredicate) predicate).getRobot().getOffice(),
                     ((RobotLocationPredicate) predicate).getOffice())) {
 
+                Integer nextAdjacent = getNextAdjacentToMove(((RobotLocationPredicate) predicate).getRobot().getOffice(), nextOffice);
+                nextOffice = boardParameters.getOffice(nextAdjacent-1);
 
-                List<Integer> adjacents = new ArrayList<Integer>();
-                adjacents = Arrays.asList(adjacentOffices[(((RobotLocationPredicate) predicate).getRobot().getOffice().getOfficeNumber() - 1)]);
-                int nextMove;
-
-                if (((RobotLocationPredicate) predicate).getRobot().getOffice().getOfficeNumber() <
-                        ((RobotLocationPredicate) predicate).getOffice().getOfficeNumber()) {
-
-                    int indexOfMax = 0;
-
-                    for (int i = 1; i < adjacents.size(); i++) {
-                        if (adjacents.get(i) > adjacents.get(indexOfMax)) {
-                            indexOfMax = i;
-                        }
-                    }
-                    nextMove = adjacents.get(indexOfMax);
-                    nextOffice = boardParameters.getOffice(nextMove-1);
-                } else {
-                    int indexOfMin = 0;
-                    for (int i = 1; i < adjacents.size(); i++) {
-                        if (adjacents.get(i) < adjacents.get(indexOfMin)) {
-                            indexOfMin = i;
-                        }
-                    }
-                    nextMove = adjacents.get(indexOfMin);
-                    nextOffice = boardParameters.getOffice(nextMove-1);
-                }
             }
 
 //            MoveOperator moveOperatorAdjacent = new MoveOperator(boardParameters.getRobot(),
@@ -94,6 +73,7 @@ public class OperatorFinder {
                     if (((CleanPredicate) predicate).getOffice() ==
                             ((CleanPredicate) operatorAddEffect).getOffice()) {
 
+                        // If the precondition is accomplished by the CleanOfficeOperator, create it and return it.
                         CleanOfficeOperator cleanOfficeOperator = new CleanOfficeOperator(((CleanPredicate) predicate).getOffice(),
                                                                                             boardParameters.getRobot());
 
@@ -233,6 +213,48 @@ public class OperatorFinder {
 
         return bestAdjacentToPush;
 
+    }
+
+    public Integer getNextAdjacentToMove(Office office1, Office office2){
+
+
+        List<Integer> adjacents = new ArrayList<>();
+        adjacents = Arrays.asList(adjacentOffices[office1.getOfficeNumber()-1]);
+
+        //int distanceLinear;
+        //int distanceMap;
+        int rowOrigin, rowDestination;
+        int columnOrigin, columnDestination;
+        Integer distance;
+        List<Integer> distances = new ArrayList<>();
+
+        rowDestination = getXcoordinates()[office2.getOfficeNumber()-1];
+        columnDestination = getYcoordinates()[office2.getOfficeNumber()-1];
+
+
+        for (int i=0;i<adjacents.size();i++){
+
+
+
+            rowOrigin = getXcoordinates()[adjacents.get(i)-1];
+            columnOrigin = getYcoordinates()[adjacents.get(i)-1];
+
+
+            distance = Math.abs(rowOrigin-rowDestination) + Math.abs(columnOrigin-columnDestination);
+            distances.add(distance);
+        }
+
+        //return (distances.indexOf(Collections.min(distances))+1);
+        return (adjacents.get(distances.indexOf(Collections.min(distances))));
+
+    }
+
+    public Integer[] getXcoordinates() {
+        return xcoordinates;
+    }
+
+    public Integer[] getYcoordinates() {
+        return ycoordinates;
     }
 }
 

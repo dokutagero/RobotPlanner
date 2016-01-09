@@ -42,25 +42,4 @@ public class AdjacentPredicate extends Predicate {
                 '}';
     }
 
-    @Override
-    public boolean checkElement() {
-        return this.checkPredicate();
-    }
-
-    @Override
-    void applyElement() {
-
-    }
-
-    public int[][] getAdjacentOffices() {
-        return adjacentOffices;
-    }
-
-    public Office getOffice1() {
-        return office1;
-    }
-
-    public Office getOffice2() {
-        return office2;
-    }
 }

@@ -21,15 +21,6 @@ public class EmptyPredicate extends Predicate {
                 '}';
     }
 
-    @Override
-    public boolean checkElement() {
-        return this.checkPredicate();
-    }
-
-    @Override
-    void applyElement() {
-
-    }
 
     public Office getOffice() {
         return office;
