@@ -52,13 +52,6 @@ public class GoalStack {
 
         }
 
-        //Populate with empty office Predicates
-        for (Office office : offices) {
-            if (boardParameters.getGoalEmptyOffices().contains(office.getOfficeNumber())) {
-                emptyPredicate = new EmptyPredicate(office);
-                this.pushToStack(emptyPredicate);
-            }
-        }
 
         //Populate with Box location predicates
         List <BoxLocationTuple> goalBoxLocation = boardParameters.getGoalBoxLocation();
@@ -69,6 +62,15 @@ public class GoalStack {
             boxLocationPredicate = new BoxLocationPredicate(box,office);
             this.pushToStack(boxLocationPredicate);
         }
+
+        //Populate with empty office Predicates
+        for (Office office : offices) {
+            if (boardParameters.getGoalEmptyOffices().contains(office.getOfficeNumber())) {
+                emptyPredicate = new EmptyPredicate(office);
+                this.pushToStack(emptyPredicate);
+            }
+        }
+
 
         //Populate with goal robot location. (change this man...)
         int robotLocation = boardParameters.getGoalRobotLocation();

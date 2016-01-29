@@ -56,6 +56,7 @@ public class Planner {
                         // This list contains the preconditions for each subgoal given by the new operator.
                         subgoalStack = new ArrayList<StackElement>();
                         // We add the new operator to the main stack of goals
+                        goalStack.addToStack(currentStackElement);
                         goalStack.addToStack(operator);
                         // Add the preconditions to the new subgoal
                         for (Predicate precondition : preconditions){
