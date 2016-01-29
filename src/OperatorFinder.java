@@ -219,23 +219,23 @@ public class OperatorFinder {
 
             distance = Math.abs(rowOrigin-rowDestination) + Math.abs(columnOrigin-columnDestination);
             // If adjacent is empty is candidate to be office to be pushed
-            if(boardParameters.getOffice(adjacents.get(i)-1).getEmpty()){
-                distances.add(distance);
-                officeIndices.add(adjacents.get(i));
-            }
+            //if(boardParameters.getOffice(adjacents.get(i)-1).getEmpty()){
+            distances.add(distance);
+            officeIndices.add(adjacents.get(i));
+            //}
         }
 
         bestAdjacentToPush =  officeIndices.get(distances.indexOf(Collections.min(distances)))-1;
-        if(bestAdjacentToPush == (boxInOffice.getLastPosition()-1)){
-            officeIndices.remove(distances.indexOf(Collections.min(distances)));
-            distances.remove(distances.indexOf(Collections.min(distances)));
-
-            bestAdjacentToPush = officeIndices.get(distances.indexOf(Collections.min(distances)))-1;
-        }
-
-        if(checkAdjacents(boxInOffice.getOffice(), boardParameters.getOffice(boxFinalOffice-1))){
-            bestAdjacentToPush = boxFinalOffice-1;
-        }
+//        if(bestAdjacentToPush == (boxInOffice.getLastPosition()-1)){
+//            officeIndices.remove(distances.indexOf(Collections.min(distances)));
+//            distances.remove(distances.indexOf(Collections.min(distances)));
+//
+//            bestAdjacentToPush = officeIndices.get(distances.indexOf(Collections.min(distances)))-1;
+//        }
+//
+//        if(checkAdjacents(boxInOffice.getOffice(), boardParameters.getOffice(boxFinalOffice-1))){
+//            bestAdjacentToPush = boxFinalOffice-1;
+//        }
 
 
 
