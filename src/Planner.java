@@ -111,6 +111,13 @@ public class Planner {
 
                         System.out.println("\n\n\n\n\n\n");
 
+                        // Compare with the inital goal state
+                        if(stack.isEmpty()){
+                            for(StackElement element : listGoalStacks.get(0)){
+                                stack.add(element);
+                            }
+                        }
+
                     }
                     else{
                         // Put back the operator and put back the preconditions from the subgoal list

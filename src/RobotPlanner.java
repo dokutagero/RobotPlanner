@@ -10,7 +10,7 @@ public class RobotPlanner {
 
     public static void main(String[] args){
 
-        String filename = new String("settings3");
+        String filename = new String("settings");
 
         //Parse initial files and obtain the board configuration.
         PARser parser = new PARser();
@@ -26,7 +26,7 @@ public class RobotPlanner {
         File outputFile = new File(outputFileName);
         try {
             PrintStream printStream = new PrintStream(outputFile);
-            System.setOut(printStream);
+            //System.setOut(printStream);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
