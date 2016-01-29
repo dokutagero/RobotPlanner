@@ -119,7 +119,9 @@ public class OperatorFinder {
         }else if (predicate instanceof BoxLocationPredicate){
 //            // CHECK BOX-LOCATION PREDICATE
             PushOperator pushOperatorChecker = new PushOperator();
-            Box boxInOffice = ((BoxLocationPredicate) predicate).getOffice().getBox();
+            //Box boxInOffice = ((BoxLocationPredicate) predicate).getOffice().getBox();
+            Box boxInOffice = ((BoxLocationPredicate) predicate).getBox();
+
 
             Integer bestAdjacentToPushTo = getBestAdjacentToPushTo(((BoxLocationPredicate) predicate).getBox().getOffice(), boardParameters);
             Office officeToBePushed = boardParameters.getOffice(bestAdjacentToPushTo);
