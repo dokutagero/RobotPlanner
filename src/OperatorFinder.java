@@ -136,20 +136,30 @@ public class OperatorFinder {
             List<Predicate> predicates = pushOperatorChecker.getAddEffects(boardParameters.getRobot(), boxInOffice,
                     ((BoxLocationPredicate) predicate).getOffice(),
                     officeToBePushed);
-            for (Predicate operatorPushEffect : predicates) {
-                if (predicate.getClass().equals(operatorPushEffect.getClass())) {
-                    if (((BoxLocationPredicate) predicate).getOffice() == ((BoxLocationPredicate) operatorPushEffect).getOffice()) {
+//            for (Predicate operatorPushEffect : predicates) {
+//                if (predicate.getClass().equals(operatorPushEffect.getClass())) {
+//                    if (((BoxLocationPredicate) predicate).getOffice() == ((BoxLocationPredicate) operatorPushEffect).getOffice()) {
+//
+//
+//                        PushOperator pushOperator = new PushOperator(boardParameters.getRobot(), boxInOffice,
+//                                ((BoxLocationPredicate) predicate).getOffice(),
+//                                officeToBePushed);
+//
+//                        return pushOperator;
+//                    }
+//
+//                }
+//            }
+//            PushOperator pushOperator = new PushOperator(boardParameters.getRobot(), boxInOffice,
+//                                ((BoxLocationPredicate) predicate).getOffice(),
+//                                officeToBePushed);
 
+            PushOperator pushOperator = new PushOperator(boardParameters.getRobot(), boxInOffice,
+                    boxInOffice.getOffice(),
+                    officeToBePushed);
 
-                        PushOperator pushOperator = new PushOperator(boardParameters.getRobot(), boxInOffice,
-                                ((BoxLocationPredicate) predicate).getOffice(),
-                                officeToBePushed);
+            return pushOperator;
 
-                        return pushOperator;
-                    }
-
-                }
-            }
         }
         else{
 
