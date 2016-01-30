@@ -136,23 +136,7 @@ public class OperatorFinder {
             List<Predicate> predicates = pushOperatorChecker.getAddEffects(boardParameters.getRobot(), boxInOffice,
                     ((BoxLocationPredicate) predicate).getOffice(),
                     officeToBePushed);
-//            for (Predicate operatorPushEffect : predicates) {
-//                if (predicate.getClass().equals(operatorPushEffect.getClass())) {
-//                    if (((BoxLocationPredicate) predicate).getOffice() == ((BoxLocationPredicate) operatorPushEffect).getOffice()) {
-//
-//
-//                        PushOperator pushOperator = new PushOperator(boardParameters.getRobot(), boxInOffice,
-//                                ((BoxLocationPredicate) predicate).getOffice(),
-//                                officeToBePushed);
-//
-//                        return pushOperator;
-//                    }
-//
-//                }
-//            }
-//            PushOperator pushOperator = new PushOperator(boardParameters.getRobot(), boxInOffice,
-//                                ((BoxLocationPredicate) predicate).getOffice(),
-//                                officeToBePushed);
+
 
             PushOperator pushOperator = new PushOperator(boardParameters.getRobot(), boxInOffice,
                     boxInOffice.getOffice(),
@@ -224,8 +208,17 @@ public class OperatorFinder {
             officeIndices.add(adjacents.get(i));
             //}
         }
-
+        Integer minDistance = Collections.min(distances);
         bestAdjacentToPush =  officeIndices.get(distances.indexOf(Collections.min(distances)))-1;
+
+        //distances.remove(distances.indexOf(Collections.min(distances)));
+        distances.set(distances.indexOf(Collections.min(distances)),10);
+
+        if ((minDistance == Collections.min(distances)) && !boardParameters.getOffice(bestAdjacentToPush).getEmpty()){
+            bestAdjacentToPush = officeIndices.get(distances.indexOf(Collections.min(distances)))-1;
+        }
+
+
 //        if(bestAdjacentToPush == (boxInOffice.getLastPosition()-1)){
 //            officeIndices.remove(distances.indexOf(Collections.min(distances)));
 //            distances.remove(distances.indexOf(Collections.min(distances)));
