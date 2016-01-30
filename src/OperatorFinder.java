@@ -92,11 +92,9 @@ public class OperatorFinder {
             // Box in office to be pushed
             Box boxInOffice = ((EmptyPredicate) predicate).getOffice().getBox();
 
-            // ADD HEURISTICS TO SELECTING WHERE TO BE PUSHED
 
             // Get the best office to push the box
             Integer bestAdjacentToPushTo = getBestAdjacentToPushTo(((EmptyPredicate) predicate).getOffice(), boardParameters);
-            //Office officeToBePushed = boardParameters.getOffice(adjacentOffices[(((EmptyPredicate) predicate).getOffice().getOfficeNumber() - 1)][bestAdjacentToPushTo]);
             Office officeToBePushed = boardParameters.getOffice(bestAdjacentToPushTo);
 
 
@@ -193,44 +191,29 @@ public class OperatorFinder {
         columnDestination = getYcoordinates()[boardParameters.getOffice(boxFinalOffice-1).getOfficeNumber()-1];
 
 
+        // Compute the distances of each adjacent to the final destination
         for (int i=0;i<adjacents.size();i++){
-
-
 
             rowOrigin = getXcoordinates()[adjacents.get(i)-1];
             columnOrigin = getYcoordinates()[adjacents.get(i)-1];
 
 
             distance = Math.abs(rowOrigin-rowDestination) + Math.abs(columnOrigin-columnDestination);
-            // If adjacent is empty is candidate to be office to be pushed
-            //if(boardParameters.getOffice(adjacents.get(i)-1).getEmpty()){
             distances.add(distance);
             officeIndices.add(adjacents.get(i));
-            //}
         }
+
         Integer minDistance = Collections.min(distances);
         bestAdjacentToPush =  officeIndices.get(distances.indexOf(Collections.min(distances)))-1;
 
         //distances.remove(distances.indexOf(Collections.min(distances)));
-        distances.set(distances.indexOf(Collections.min(distances)),10);
 
+
+        distances.set(distances.indexOf(Collections.min(distances)),10);
+        // If two options to be pushed are available, pick the one empty
         if ((minDistance == Collections.min(distances)) && !boardParameters.getOffice(bestAdjacentToPush).getEmpty()){
             bestAdjacentToPush = officeIndices.get(distances.indexOf(Collections.min(distances)))-1;
         }
-
-
-//        if(bestAdjacentToPush == (boxInOffice.getLastPosition()-1)){
-//            officeIndices.remove(distances.indexOf(Collections.min(distances)));
-//            distances.remove(distances.indexOf(Collections.min(distances)));
-//
-//            bestAdjacentToPush = officeIndices.get(distances.indexOf(Collections.min(distances)))-1;
-//        }
-//
-//        if(checkAdjacents(boxInOffice.getOffice(), boardParameters.getOffice(boxFinalOffice-1))){
-//            bestAdjacentToPush = boxFinalOffice-1;
-//        }
-
-
 
         return bestAdjacentToPush;
 
@@ -265,7 +248,6 @@ public class OperatorFinder {
             distances.add(distance);
         }
 
-        //return (distances.indexOf(Collections.min(distances))+1);
         return (adjacents.get(distances.indexOf(Collections.min(distances))));
 
     }

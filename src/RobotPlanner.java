@@ -4,13 +4,13 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 
 /**
- * Created by juarugui on 31/12/15.
+ * Created by juarugui & abhishek on 31/12/15.
  */
 public class RobotPlanner {
 
     public static void main(String[] args){
 
-        String filename = new String("settings");
+        String filename = new String("settings4");
 
         //Parse initial files and obtain the board configuration.
         PARser parser = new PARser();
