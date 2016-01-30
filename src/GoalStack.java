@@ -48,8 +48,6 @@ public class GoalStack {
         for (Office office : offices) {
             cleanPredicate = new CleanPredicate(office);
             this.pushToStack(cleanPredicate);
-
-
         }
 
 
