@@ -40,6 +40,35 @@ public class Planner {
                 // Pop each element from the main stack at each iteration.
                 currentStackElement = goalStack.popFromStack();
 
+
+                // Print at every loop of the stack
+                System.out.println("************");
+                System.out.println("CURRENT STACK");
+                System.out.println("************");
+
+
+                System.out.println(goalStack);
+
+                System.out.println("************");
+                System.out.println("CURRENT ELEMENT:");
+                System.out.println("************");
+                System.out.println(currentStackElement);
+
+
+                System.out.println("************");
+                System.out.println("LIST OF SUBGOALS");
+                System.out.println("************");
+                System.out.println(listGoalStacks);
+
+                System.out.println("************");
+                System.out.println("PLAN");
+                System.out.println("************");
+
+                System.out.println(plan);
+
+                System.out.println("\n\n\n\n");
+                //
+
                 if (currentStackElement instanceof Predicate){
 
                     // If predicate is already accomplished, remove it from the stack.
@@ -91,33 +120,6 @@ public class Planner {
                         currentStackElement = null;
                         // Remove last set of preconditions from this already accomplished subgoal.
                         listGoalStacks.remove(listGoalStacks.size()-1);
-
-
-                        System.out.println("************");
-                        System.out.println("CURRENT STACK");
-                        System.out.println("************");
-
-                        System.out.println(goalStack);
-
-                        System.out.println("************");
-                        System.out.println("LIST OF SUBGOALS");
-                        System.out.println("************");
-                        System.out.println(listGoalStacks);
-
-                        System.out.println("************");
-                        System.out.println("PLAN");
-                        System.out.println("************");
-
-                        System.out.println(plan);
-
-                        System.out.println("\n\n\n\n\n\n");
-
-                        // Compare with the inital goal state
-//                        if(stack.isEmpty()){
-//                            for(StackElement element : listGoalStacks.get(0)){
-//                                stack.add(element);
-//                            }
-//                        }
 
                     }
                     else{
