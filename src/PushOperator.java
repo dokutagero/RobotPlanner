@@ -35,7 +35,9 @@ public class PushOperator extends Operator {
         // Set location of box to office2
         // Set office1 empty
         // Robot location office2
+        int lastPos = box.getLastPosition();
         box.setLocation(office2);
+        box.setLastPosition(lastPos);
         office1.setEmpty(true, null);
         robot.setLocation(office2);
         // Could add this statement to delete function
