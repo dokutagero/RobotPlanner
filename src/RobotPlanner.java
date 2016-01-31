@@ -26,7 +26,7 @@ public class RobotPlanner {
         File outputFile = new File(outputFileName);
         try {
             PrintStream printStream = new PrintStream(outputFile);
-            //System.setOut(printStream);
+            System.setOut(printStream);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
